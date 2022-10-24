@@ -1,0 +1,27 @@
+GET http://localhost:5000/todos/?category=LEARNING&priority=HIGH
+
+###
+GET http://localhost:5000/todos/3/
+
+###
+GET http://localhost:5000/agenda/?date=2021-02-22
+
+####
+POST http://localhost:5000/todos/
+Content-Type: application/json 
+
+{
+ "id": 6,
+ "todo": "Finalize event theme",
+ "priority": "LOW",
+ "status": "TO DO",
+ "category": "HOME",
+ "dueDate": "2021-02-22"
+}
+
+###
+PUT http://localhost:5000/todos/2/
+Content-Type: application/json 
+
+{ "status": "DONE" }
+
