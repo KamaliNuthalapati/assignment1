@@ -151,7 +151,13 @@ app.get("/todos/", async (request, response) => {
                 todo LIKE '%${search_q}%'
                 AND category = '${category}'
                 AND status = '${status}';`;
+        } else {
+          response.status(400);
+          response.send("Invalid Todo Status");
         }
+      } else {
+        response.status(400);
+        response.send("Invalid Todo Category");
       }
       break;
 
@@ -165,6 +171,9 @@ app.get("/todos/", async (request, response) => {
             WHERE
                 todo LIKE '%${search_q}%'
                 AND priority = '${priority}';`;
+      } else {
+        response.status(400);
+        response.send("Invalid Todo Priority");
       }
       break;
 
@@ -178,6 +187,9 @@ app.get("/todos/", async (request, response) => {
             WHERE
                 todo LIKE '%${search_q}%'
                 AND status = '${status}';`;
+      } else {
+        response.status(400);
+        response.send("Invalid Todo Status");
       }
 
       break;
@@ -195,6 +207,9 @@ app.get("/todos/", async (request, response) => {
             WHERE 
                 todo LIKE '%${search_q}%'
                 AND category = '${category}';`;
+      } else {
+        response.status(400);
+        response.send("Invalid Todo Category");
       }
       break;
 
@@ -272,7 +287,7 @@ app.post("/todos/", async (request, response) => {
         }
       } else {
         response.status(400);
-        response.send("Invalid Todo category");
+        response.send("Invalid Todo Category");
       }
     } else {
       response.status(400);
